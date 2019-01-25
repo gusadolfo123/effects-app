@@ -1,0 +1,11 @@
+
+
+ng g m shared/shared --flat --spec=false
+ng g c shared/navbar --spec=false -is
+ng g m users/users --flat --spec=false
+ng g c users/list --spec=false -is
+ng g c users/user --spec=false -is
+
+ng g m appRouting --flat --spec=false
+
+ng g s services/user --flat --spec=false
