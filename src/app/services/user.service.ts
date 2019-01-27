@@ -13,6 +13,10 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<User[]> {
-    return this.http.get(this.url + '/users?per_page=6').pipe(map(response => response['data']));
+    return this.http.get(this.url + '/users?per_page=6&delay=2').pipe(map(response => response['data']));
+  }
+
+  geUserById(id: string): Observable<User> {
+    return this.http.get(`${this.url}/users/${id}`).pipe(map(response => response['data']));
   }
 }

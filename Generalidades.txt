@@ -9,3 +9,9 @@ ng g c users/user --spec=false -is
 ng g m appRouting --flat --spec=false
 
 ng g s services/user --flat --spec=false
+
+
+-- que son los efectos y sus usos
+npm i @ngrx/store
+npm i @ngrx/store-devtools --save
+npm i @ngrx/effects --save

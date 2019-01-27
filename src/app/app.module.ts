@@ -10,9 +10,31 @@ import {UsersModule} from './users/users.module';
 // rutas
 import {AppRoutingModule} from './app-routing.module';
 
+// environments
+import {environment} from 'src/environments/environment.prod';
+
+// ngrx
+import {StoreModule} from '@ngrx/store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {AppReducers} from './store/app.reducer';
+import {EffectsModule} from '@ngrx/effects';
+import {effectsArr} from './store/effects';
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, SharedModule, UsersModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    SharedModule,
+    UsersModule,
+    AppRoutingModule,
+    HttpClientModule,
+    StoreModule.forRoot(AppReducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot(effectsArr),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
